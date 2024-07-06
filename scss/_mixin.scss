@@ -1,0 +1,117 @@
+@mixin bg-properties{
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+@mixin section-heading{
+    font-size: 2.4rem;
+    margin-bottom: 2.5rem;
+    text-align: center;
+    font-weight: 400;
+}
+
+@mixin sub-heading{
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+
+
+@mixin section-title{
+    font-size: 3.6rem;
+    text-align: center;
+    margin-bottom: 5rem;
+    position: relative;
+    text-transform: capitalize;
+    font-family: 'Montserrat', sans-serif;
+    &::after{
+        content: "";
+        background: linear-gradient(45deg, $accent-color, transparent);;
+        width: 235px;
+        height: 20px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -20%);
+        z-index: -1;
+    }
+}
+
+@mixin section-title-after {
+    content: "";
+    background: linear-gradient(45deg, #05aed5,);
+    width: 235px;
+    height: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -20%);
+    z-index: -1;
+}
+
+@mixin sub-title{
+    text-align: center;
+    font-size: 2.4rem;
+    
+}
+
+@mixin text_animation{
+    display: inline-block;
+    color: #fff;
+    font-size: 4rem;
+    position: relative;
+    &::before{
+        content: "Fansaction";
+        position: absolute;
+        top: 1px;
+        left: 0;
+        border-right: 3px solid $secondary-color;
+        color:$secondery-color;
+        animation: slide-text 6s linear infinite;
+        --webkit-animation:slide-text 3s linear infinite;
+        overflow: hidden;
+    }
+    @keyframes slide-text {
+        0%{
+            width: 0%;
+        }
+        50%{
+            width: 100%;
+        }
+        100%{
+            width: 0%;
+        }
+    }
+    
+}
+
+
+@mixin primary-btn{
+    display: inline-block;
+    font-size: 2rem;
+    color: #fff;
+    text-transform: capitalize;
+    background: transparent;
+    padding: 0.6rem 2rem;
+    margin-top: 3rem;
+    transition: all 0.2s ease-in-out;
+    border: 2px solid #05aed5;
+    position: relative;
+    isolation: isolate;
+    &:hover{
+        color: #fff;
+        &::after{
+            width: 100%;
+        }
+    }
+    &::after{
+        position: absolute;
+        content: "";
+        background: #05aed5;
+        inset: 0;
+        z-index: -1;
+        width: 0;
+        transition: all 0.3s linear;
+    }
+}
